@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace ListClass
 {
-    class List
+    class ListClass
     {
+        // member variables
+
+        // constructor
+        List<int> list = new List<int>();
+        list.Add(7);
+        // member methods
+
     }
 }
