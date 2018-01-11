@@ -34,7 +34,18 @@ namespace ListClassUnitTest
             Assert.AreEqual(result, list);
         }
         [TestMethod]
-        public void Add_Actual()
+        public void Add_ToEmpty()
+        {
+            // Arrange
+            ListClass<T> list = new ListClass<T>();
+            // Act 
+            list.Add(1);
+            int[] result = new int[] {1};
+            // Assert
+            Assert.AreEqual(result, list);
+        }
+        [TestMethod]
+        public void Add_Ints_SameCount()
         {
             // Arrange
             ListClass<T> list = new ListClass<T>();
@@ -44,7 +55,7 @@ namespace ListClassUnitTest
             list.Add(3);
             int[] result = new int[] { 1, 2, 3 };
             // Assert
-            Assert.AreEqual(result, list);
+            Assert.AreEqual(result.Length, list.Length);
         }
     }
 }
