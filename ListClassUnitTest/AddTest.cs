@@ -80,6 +80,9 @@ namespace CustomListUnitTest
             CustomList<int> list = new CustomList<int>();
 
         }
+
+
+
         //Remove method tests
         [TestMethod]
         public void Remove_FromEmpty()
@@ -127,6 +130,21 @@ namespace CustomListUnitTest
             list.Remove(3);
             // Assert
             Assert.AreEqual(expected, list[5]);
+        }
+        [TestMethod]
+        public void Remove_Objects()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object> {list, list, list } ();
+            object notExpected = list;
+            // Act
+            list.Remove(list);
+            list.Remove(list);
+            list.Remove(list);
+
+
+            // Assert
+            Assert.AreNotEqual(notExpected, list[0]);
         }
     }
 }
