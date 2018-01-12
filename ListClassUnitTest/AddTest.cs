@@ -80,5 +80,40 @@ namespace CustomListUnitTest
             CustomList<int> list = new CustomList<int>();
 
         }
+        //Remove method tests
+        [TestMethod]
+        public void Remove_FromEmpty()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int> ();
+            int notExpected = 1;
+            // Act
+            list.Remove(1);
+            // Assert
+            Assert.AreNotEqual(notExpected, list[0]);
+        }
+        [TestMethod]
+        public void Remove_IntToEmpty()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int> { 1 } ();
+            // Act
+            list.Remove(1);
+            string expected = null;
+            // Assert
+            Assert.AreEqual(expected, list[0]);
+        }
+        [TestMethod]
+        public void Remove_SingleString()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string> {"One","Two","Three" }();
+            // Act
+            string one = "One";
+            list.Remove(one);
+            string expected = "Three";
+            // Assert
+            Assert.AreEqual(expected, list[1]);
+        }
     }
 }

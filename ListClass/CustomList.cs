@@ -30,14 +30,15 @@ namespace CustomList
         {
             return 0; //return counter of length.
         }
-        public void Add(T input)
+        public T[] Add(T input)
         {            
             T[] product = new T[array.Length + 1];
             product[array.Length + 1] = input;
             for (int i = 0; i < array.Length; i++)
             {
                 product[i] = array[i];
-            }       
+            }
+            return product;    
         }
     }
 }
