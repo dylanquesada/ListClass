@@ -155,6 +155,21 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
+        public void Remove_CountCheck()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>();
+            list.Add(1);
+            list.Add(1);
+            list.Add(1);
+            list.Add(1);
+            // Act
+            int notExpected = list.Count;
+            list.Remove(1);
+            // Assert
+            Assert.AreNotEqual(notExpected, list.Count);
+        }
+        [TestMethod]
         public void Remove_SingleString()
         {
             // Arrange
