@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomList;
 
 namespace ListClass
 {
@@ -10,7 +11,8 @@ namespace ListClass
     {
         static void Main(string[] args)
         {
-
+            CustomList<int> IntList = new CustomList<int>();
+            IntList.Add(1);
         }
     }
 }

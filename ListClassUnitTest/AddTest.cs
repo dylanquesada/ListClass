@@ -13,7 +13,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int> { 1, 2, 3 }();
+            CustomList<int> expected = new CustomList<int> () { 1, 2, 3 };
             // Act 
 
             list.Add(1);
@@ -26,7 +26,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<string> list = new CustomList<string>();
-            CustomList<string> expected = new CustomList<string> { "One", "Two", "Three" }();
+            CustomList<string> expected = new CustomList<string>() { "One", "Two", "Three" };
             // Act 
             list.Add("One");
             list.Add("Two");
@@ -40,10 +40,9 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int> { 1 }();
+            CustomList<int> expected = new CustomList<int>() { 1 };
             // Act 
             list.Add(1);
-            int[] result = new int[] { 1 };
             // Assert
             Assert.AreEqual(expected.Count, list.Count);
         }
@@ -52,7 +51,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
-            CustomList<object> expected = new CustomList<object> { 1 }();
+            CustomList<object> expected = new CustomList<object> () { 1 };
             // Act 
             list.Add(1);
             int[] result = new int[] { 1 };
@@ -72,7 +71,37 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(result, list.Count);
         }
+        [TestMethod]
+        public void Add_OutsideOfBounds()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object>();
+            // Act
+            object obj = new object();
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            list.Add(obj);
+            int expected = 19;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
 
+        }
         //Count method tests
         [TestMethod]
         public void Count_Empty()
@@ -99,7 +128,7 @@ namespace CustomListUnitTest
         public void Remove_IntToEmpty()
         {
             // Arrange
-            CustomList<int> list = new CustomList<int> { 1 } ();
+            CustomList<int> list = new CustomList<int> () { 1 };
             // Act
             list.Remove(1);
             string expected = null;
@@ -110,7 +139,7 @@ namespace CustomListUnitTest
         public void Remove_SingleString()
         {
             // Arrange
-            CustomList<string> list = new CustomList<string> {"One","Two","Three" }();
+            CustomList<string> list = new CustomList<string> () { "One", "Two", "Three" };
             string one = "One";
             // Act
 
@@ -123,7 +152,7 @@ namespace CustomListUnitTest
         public void Remove_MultipleInts()
         {
             // Arrange
-            CustomList<int> list = new CustomList<int> { 0, 1, 2, 3, 4, 5, 6, 7 }();
+            CustomList<int> list = new CustomList<int>() { 0, 1, 2, 3, 4, 5, 6, 7 };
             int expected = 7;
             // Act
             list.Remove(0);
@@ -135,7 +164,8 @@ namespace CustomListUnitTest
         public void Remove_Objects()
         {
             // Arrange
-            CustomList<object> list = new CustomList<object> {list, list, list } ();
+            CustomList<object> list = new CustomList<object>  () { //list, list, list, list
+            };
             object notExpected = list;
             // Act
             list.Remove(list);
