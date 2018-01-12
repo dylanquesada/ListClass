@@ -108,12 +108,25 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<string> list = new CustomList<string> {"One","Two","Three" }();
-            // Act
             string one = "One";
+            // Act
+
             list.Remove(one);
             string expected = "Three";
             // Assert
             Assert.AreEqual(expected, list[1]);
+        }
+        [TestMethod]
+        public void Remove_MultipleInts()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int> { 0, 1, 2, 3, 4, 5, 6, 7 }();
+            int expected = 7;
+            // Act
+            list.Remove(0);
+            list.Remove(3);
+            // Assert
+            Assert.AreEqual(expected, list[5]);
         }
     }
 }
