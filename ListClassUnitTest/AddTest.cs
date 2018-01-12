@@ -13,7 +13,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int> () { 1, 2, 3 };
+            CustomList<int> expected = new CustomList<int>() { 1, 2, 3 };
             // Act 
 
             list.Add(1);
@@ -51,7 +51,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
-            CustomList<object> expected = new CustomList<object> () { 1 };
+            CustomList<object> expected = new CustomList<object>() { 1 };
             // Act 
             list.Add(1);
             int[] result = new int[] { 1 };
@@ -102,25 +102,44 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
 
         }
-        //Count method tests
+        //Count tests
+        //[TestMethod]
+        //public void Count_Empty_CapacityTest()
+        //{
+        //    // Arrange
+        //    CustomList<int> list = new CustomList<int>();
+
+        //    // Act
+        //    int expected = 5;
+        //   // list.array.Length;
+        //    // Assert
+        //    Assert.AreEqual(expected, list.Count);
+        //}
         [TestMethod]
         public void Count_Empty()
         {
+            // Arrange
             CustomList<int> list = new CustomList<int>();
 
+            // Act
+            int expected = 0;
+
+            // Assert
+            Assert.AreEqual(expected, list.Count);
         }
 
 
 
         //Remove method tests
         [TestMethod]
-        public void Remove_FromEmpty()
+        public void Remove_ToEmpty()
         {
             // Arrange
-            CustomList<int> list = new CustomList<int> ();
+            CustomList<int> list = new CustomList<int>();
+            list.Add(1);
             int notExpected = 1;
             // Act
-            list.Remove(1);
+            //list.Remove(1);
             // Assert
             Assert.AreNotEqual(notExpected, list[0]);
         }
@@ -128,7 +147,7 @@ namespace CustomListUnitTest
         public void Remove_IntToEmpty()
         {
             // Arrange
-            CustomList<int> list = new CustomList<int> () { 1 };
+            CustomList<int> list = new CustomList<int>() { 1 };
             // Act
             list.Remove(1);
             string expected = null;
@@ -139,7 +158,7 @@ namespace CustomListUnitTest
         public void Remove_SingleString()
         {
             // Arrange
-            CustomList<string> list = new CustomList<string> () { "One", "Two", "Three" };
+            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
             string one = "One";
             // Act
 
@@ -164,10 +183,12 @@ namespace CustomListUnitTest
         public void Remove_Objects()
         {
             // Arrange
-            CustomList<object> list = new CustomList<object>  () { //list, list, list, list
-            };
+            CustomList<object> list = new CustomList<object>();
             object notExpected = list;
             // Act
+            list.Add(list);
+            list.Add(list);
+            list.Add(list);
             list.Remove(list);
             list.Remove(list);
             list.Remove(list);
@@ -175,6 +196,19 @@ namespace CustomListUnitTest
 
             // Assert
             Assert.AreNotEqual(notExpected, list[0]);
+        }
+        [TestMethod]
+        public void Remove_NoObjectsFromList()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object>();
+            list.Add(list);
+            list.Add(list);
+            // Act
+            int expected = 1;
+            list.Remove(list);
+            // Assert
+            Assert.AreEqual(expected, list.Count);
         }
     }
 }

@@ -23,6 +23,7 @@ namespace CustomList
         public CustomList()
         {
             capacity = array.Length;
+
         }
 
 
@@ -53,10 +54,10 @@ namespace CustomList
             count++;
             if (count * 2 >= capacity)
             {
-                capacity = count * 2;
+                capacity *=2;
             }            
             T[] result = new T[capacity];
-            result[count] = input;
+            result[count - 1] = input;
             for (int i = 0; i < count - 1; i++)
             {
                 result[i] = array[i];
