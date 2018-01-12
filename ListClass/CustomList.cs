@@ -4,12 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomList
+namespace CustomList 
 {
     public class CustomList<T>
     {
+        //Workspace for seeing what methods the List class has:
+        List<string> list = new List<string>();
+        public void Workspace()
+        {
+            list.Remove("one");
+        }
+        //
         // member variables
-        T[] array = new T[100];
+        T[] array = new T[0];
+        int count = 0;
+        public int Count
+        {
+            get { return count; }
+            set { count = value; }
+        }
         public T this[int i]
         {
             get { return array[i]; }
@@ -26,11 +39,8 @@ namespace CustomList
         //List<int> list = new List<int>();
 
         // member methods
-        public int Count()
-        {
-            return 0; //return counter of length.
-        }
-        public T[] Add(T input)
+        
+        public void Add(T input)
         {            
             T[] product = new T[array.Length + 1];
             product[array.Length + 1] = input;
@@ -38,7 +48,12 @@ namespace CustomList
             {
                 product[i] = array[i];
             }
-            return product;    
+            array = product;
+            Count = array.Length;    
+        }
+        public void Remove(T input)
+        {
+
         }
     }
 }

@@ -70,7 +70,7 @@ namespace CustomListUnitTest
             list.Add(3);
             int result = 3;
             // Assert
-            Assert.AreEqual(result, list.Length);
+            Assert.AreEqual(result, list.Count);
         }
 
         //Count method tests
