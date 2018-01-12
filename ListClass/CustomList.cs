@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListClass
+namespace CustomList
 {
-    class ListClass<T>
+    public class CustomList<T>
     {
         // member variables
-        T[] array;
+        T[] array = new T[100];
+        public T this[int i]
+        {
+            get { return array[i]; }
+            set { array[i] = value; }
+        }
         // constructor
-        public ListClass()
+        public CustomList()
         {
 
         }
@@ -21,7 +26,11 @@ namespace ListClass
         //List<int> list = new List<int>();
 
         // member methods
-        public void Add(ref T input)
+        public int Count()
+        {
+            return 0; //return counter of length.
+        }
+        public void Add(T input)
         {            
             T[] product = new T[array.Length + 1];
             product[array.Length + 1] = input;
