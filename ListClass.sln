@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListClass", "ListClass\ListClass.csproj", "{1EABB748-0E0F-44C1-B317-9FC9B8CEAB85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "ListClass\CustomList.csproj", "{1EABB748-0E0F-44C1-B317-9FC9B8CEAB85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListClassUnitTest", "ListClassUnitTest\ListClassUnitTest.csproj", "{8A7DC4BE-7F89-4F20-B3FC-DBAE5C98512C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomListUnitTest", "ListClassUnitTest\CustomListUnitTest.csproj", "{8A7DC4BE-7F89-4F20-B3FC-DBAE5C98512C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

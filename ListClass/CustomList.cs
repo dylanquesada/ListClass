@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList 
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         //Workspace for seeing what methods the List class has:
         List<string> list = new List<string>();
@@ -16,12 +17,12 @@ namespace CustomList
         }
         //
         // member variables
-        T[] array = new T[0];
+        T[] array = new T[5];
         int count = 0;
+        int capacity;
         public int Count
         {
             get { return count; }
-            set { count = value; }
         }
         public T this[int i]
         {
@@ -31,7 +32,7 @@ namespace CustomList
         // constructor
         public CustomList()
         {
-
+            capacity = array.Length;
         }
         //list.Add(1);
         //list.Remove(1);
@@ -41,15 +42,19 @@ namespace CustomList
         // member methods
         
         public void Add(T input)
-        {            
-            T[] product = new T[array.Length + 1];
-            product[array.Length + 1] = input;
-            for (int i = 0; i < array.Length; i++)
+        {
+            count++;
+            if (count * 2 >= capacity)
             {
-                product[i] = array[i];
+                capacity *= 2;
+            }            
+            T[] result = new T[capacity];
+            result[count + 1] = input;
+            for (int i = 0; i < count - 1; i++)
+            {
+                result[i] = array[i];
             }
-            array = product;
-            Count = array.Length;    
+            array = result;            
         }
         public void Remove(T input)
         {

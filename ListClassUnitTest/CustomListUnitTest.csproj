@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ListClass\ListClass.csproj">
+    <ProjectReference Include="..\ListClass\CustomList.csproj">
       <Project>{1eabb748-0e0f-44c1-b317-9fc9b8ceab85}</Project>
-      <Name>ListClass</Name>
+      <Name>CustomList</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
