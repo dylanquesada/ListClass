@@ -23,6 +23,8 @@ namespace ListClass
             Console.WriteLine(newList.ToString());
             CustomList<bool> list = new CustomList<bool>() { true, false, true };
             Console.WriteLine(list.ToString());
+            Console.WriteLine(newList[1]);
+            Console.WriteLine(newList[5]);
             Console.Read();
         }
     }

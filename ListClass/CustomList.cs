@@ -13,11 +13,12 @@ namespace CustomList
         // IEnumerator
         public IEnumerator GetEnumerator()
         {
-            for(int index = 0; index < capacity; index++)
+            for(int index = 0; index < count; index++)
             {
                 yield return array[index];
-            }
-            //yield return throw IndexOutOfBoundsException;
+            }            
+            //Exception IndexOutOfBoundsException = new Exception();
+            throw new IndexOutOfRangeException();
         }
         // constructor
         public CustomList()

@@ -298,5 +298,11 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(expected, result);
         }
+        // Plus Operator Test Methods
+        [TestMethod]
+        public void PlusOperator_Strings()
+        {
+
+        }
     }
 }
