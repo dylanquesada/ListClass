@@ -344,7 +344,7 @@ namespace CustomListUnitTest
             empty = list + empty;
             string expected = "Two";
             // Assert
-            Assert.AreEqual(expected, list[1]);
+            Assert.AreEqual(expected, empty[1]);
 
         }
         [TestMethod]
@@ -356,7 +356,7 @@ namespace CustomListUnitTest
             empty = list + empty;
             int expected = 2;
             // Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, empty.Count);
 
         }
         [TestMethod]
@@ -368,17 +368,8 @@ namespace CustomListUnitTest
             list = list + list;
             bool expected = true;
             // Assert
-            Assert.(expected, list[2]);
+            Assert.AreEqual(expected, list[2]);
         }
-        [TestMethod]
-        public void PlusOperator_StringsAndInts()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
-        }
+        
     }
 }
