@@ -112,6 +112,16 @@ namespace CustomList
             }
             return result;
         }
+        public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> result = one;
+            for (int i = 0; i < two.Count; i++)
+            {
+                result.Remove(two[i]);
+            }
+            return result;
+        }
+
 
 
 
