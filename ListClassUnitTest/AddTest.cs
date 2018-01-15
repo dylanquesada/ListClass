@@ -432,5 +432,70 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
 
         }
+        // Zip TestMethods
+        [TestMethod]
+        public void Zip_ints()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 3, 5};
+            CustomList<int> otherList = new CustomList<int>() { 2, 4, 6 };
+            // Act
+            list = list.Zipper(otherList);
+            int expected = 6;
+            // Assert
+            Assert.AreEqual(expected, list[5]);
+        }
+        [TestMethod]
+        public void Zip_Ints_Count()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> otherList = new CustomList<int>() { 2, 4, 6 };
+            // Act
+            list = list.Zipper(otherList);
+            int expected = 6;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+
+        }
+        [TestMethod]
+        public void Zip_ints_UnbalancedLength()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4 };
+            CustomList<int> biggerList = new CustomList<int>() { 9, 9, 9, 9, 9, 9, 9 };
+
+            // Act
+            list.Zipper(biggerList);
+            int expected = 9;
+            // Assert
+            Assert.AreEqual(expected, list[10]);
+
+        }
+        [TestMethod]
+        public void Zip_Strings_CountChecker()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+            // Act
+            list.Zipper(list);
+            int expected = 6;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+
+        }
+        [TestMethod]
+        public void Zip_Strings_OtherwiseUnbalancedLength()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+            CustomList<string> biggerList = new CustomList<string>() { "One", "Two", "Three", "Four", "Five", "Six" };
+            // Act
+            list = biggerList.Zipper(list);
+            string expected = "Six";
+            // Assert
+            Assert.AreEqual(expected, list[8]);
+        }
+
     }
 }

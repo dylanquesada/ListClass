@@ -73,7 +73,7 @@ namespace CustomList
             T[] result = new T[capacity];
             for(int i = 0; i < count; i++)
             {
-                if (object.Equals(array[i], input) && !removed)
+                if(Equals(array[i], input) && !removed)
                 {
                     removed = true;
                     result[i] = array[i + 1];
@@ -123,6 +123,11 @@ namespace CustomList
             {
                 result.Remove(two[i]);
             }
+            return result;
+        }
+        public CustomList<T> Zipper(CustomList<T> list)
+        {
+            CustomList<T> result = new CustomList<T>();
             return result;
         }
 
