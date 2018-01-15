@@ -299,12 +299,12 @@ namespace CustomListUnitTest
 
             Assert.AreEqual(expected, result);
         }
-        
+
         [TestMethod]
         public void ToString_Bools()
         {
             // Arrange
-            CustomList<bool> list = new CustomList<bool>() {true, false, true};
+            CustomList<bool> list = new CustomList<bool>() { true, false, true };
             // Act
             string expected = "TrueFalseTrue";
             string result = list.ToString();
@@ -317,7 +317,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two" };
-            
+
             // Act
             list = list + list;
             string expected = "Two";
@@ -370,6 +370,18 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(expected, list[2]);
         }
-        
+        // Minus Operator Test Methods
+        [TestMethod]
+        public void MinusOperator_bools()
+        {
+            // Arrange
+            CustomList<bool> list = new CustomList<bool>() {true, true, true };
+            // Act
+            bool notExpected = true;
+            list = list - list;
+            // Assert
+            Assert.AreEqual(notExpected, list[0]);
+
+        }
     }
 }
