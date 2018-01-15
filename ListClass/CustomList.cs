@@ -92,7 +92,12 @@ namespace CustomList
         }
         public override string ToString()
         {
-            return "";
+            string result = "";
+            for (int i = 0; i < count; i++)
+            {
+                result += array[i];
+            }
+            return result;
         }
 
 

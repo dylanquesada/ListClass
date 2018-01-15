@@ -51,7 +51,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
-            
+
             // Act 
             list.Add(1);
             int expected = 1;
@@ -243,7 +243,7 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
-            
+
             // Act
             bool expected = false;
             bool remove = list.Remove(list);
@@ -257,7 +257,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
             // Act
-            string expected = "One, Two, Three";
+            string expected = "OneTwoThree";
             string result = list.ToString();
             // Assert
             Assert.AreEqual(expected, result);
@@ -268,22 +268,34 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 1, 4 };
             // Act
-            string expected = "1, 1, 4";
+            string expected = "114";
             string result = list.ToString();
             // Assert
 
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
-        public void ToString_ThreeStrings()
+        public void ToString_EmptyArray()
         {
             // Arrange
-            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+            CustomList<string> list = new CustomList<string>();
             // Act
-            string expected = "One, Two, Three";
+            string expected = "";
             string result = list.ToString();
             // Assert
 
+            Assert.AreEqual(expected, result);
+        }
+        
+        [TestMethod]
+        public void ToString_Bools()
+        {
+            // Arrange
+            CustomList<bool> list = new CustomList<bool>() {true, false, true};
+            // Act
+            string expected = "TrueFalseTrue";
+            string result = list.ToString();
+            // Assert
             Assert.AreEqual(expected, result);
         }
     }
