@@ -114,7 +114,11 @@ namespace CustomList
         }
         public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
         {
-            CustomList<T> result = one;
+            CustomList<T> result = new CustomList<T>();
+            for(int i = 0; i < one.Count; i++)
+            {
+                result.Add(one[i]);
+            }
             for (int i = 0; i < two.Count; i++)
             {
                 result.Remove(two[i]);

@@ -380,7 +380,56 @@ namespace CustomListUnitTest
             bool notExpected = true;
             list = list - list;
             // Assert
-            Assert.AreEqual(notExpected, list[0]);
+            Assert.AreNotEqual(notExpected, list[0]);
+        }
+        [TestMethod]
+        public void MinusOperator_Strings_IndexShift()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "true", "true", "false" };
+            CustomList<string> otherList = new CustomList<string>() { "true" };
+            // Act
+            string expected = "false";
+            list = list - otherList;
+            // Assert
+            Assert.AreEqual(expected, list[1]);
+
+        }
+        [TestMethod]
+        public void MinusOperator_boolsCountCheck()
+        {
+            // Arrange
+            CustomList<bool> list = new CustomList<bool>() { true, true, true };
+            // Act
+            int expected = 0;
+            list = list - list;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+
+        }
+        [TestMethod]
+        public void MinusOperator_IntsToEmpty_CountChecker()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 4, 9};
+            // Act
+            int expected = 0;
+            list = list - list;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+
+        }
+        [TestMethod]
+        public void MinusOperator_Objects_CountChecker()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object>() { };
+            list.Add(list);
+            // Act
+            int expected = 0;
+            list = list - list;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
 
         }
     }
