@@ -19,12 +19,15 @@ namespace ListClass
             //Act
             //list.Remove(0);
             //list.Remove(3);
-            List<string> newList = new List<string>() { "One", "Two", "Three" };
-            Console.WriteLine(newList.ToString());
-            CustomList<bool> list = new CustomList<bool>() { true, false, true };
-            Console.WriteLine(list.ToString());
-            Console.WriteLine(newList[1]);
-            Console.WriteLine(newList[5]);
+            //List<string> newList = new List<string>() { "One", "Two", "Three" };
+            //Console.WriteLine(newList.ToString());
+            //CustomList<bool> list = new CustomList<bool>() { true, false, true };
+            //Console.WriteLine(list.ToString());
+            //Console.WriteLine(newList[1]);
+            //Console.WriteLine(newList[5]);
+            //List<string> newOne = new List<string>();
+            //newOne = newList + newList;
+            //Console.WriteLine(newOne);
             Console.Read();
         }
     }
