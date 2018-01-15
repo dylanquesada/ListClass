@@ -90,6 +90,10 @@ namespace CustomList
             array = result;
             return removed;
         }
+        public override string ToString()
+        {
+            return "";
+        }
 
 
 

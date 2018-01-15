@@ -19,6 +19,9 @@ namespace ListClass
             // Act
             list.Remove(0);
             list.Remove(3);
+            List<string> newList = new List<string>() {"One", "Two", "Three" };
+            Console.WriteLine(newList.ToString());
+            Console.Read();
         }
     }
 }

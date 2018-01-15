@@ -250,5 +250,41 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(expected, remove);
         }
+        // ToString Test Methods
+        [TestMethod]
+        public void ToString_ThreeStrings()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+            // Act
+            string expected = "One, Two, Three";
+            string result = list.ToString();
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ToString_ThreeInts()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 1, 4 };
+            // Act
+            string expected = "1, 1, 4";
+            string result = list.ToString();
+            // Assert
+
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ToString_ThreeStrings()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+            // Act
+            string expected = "One, Two, Three";
+            string result = list.ToString();
+            // Assert
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
