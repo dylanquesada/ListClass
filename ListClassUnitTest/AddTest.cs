@@ -250,6 +250,19 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(expected, remove);
         }
+        //[TestMethod]
+        //public void Remove_Int_StringArray()
+        //{
+        //    // Arrange
+        //    CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
+
+        //    // Act
+        //    int one = 1;
+        //    bool result = list.Remove(one);
+        //    bool expected = false;
+        //    // Assert
+        //    Assert.AreEqual(expected, result);
+        //}
         // ToString Test Methods
         [TestMethod]
         public void ToString_ThreeStrings()
@@ -302,6 +315,69 @@ namespace CustomListUnitTest
         [TestMethod]
         public void PlusOperator_Strings()
         {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "One", "Two" };
+            
+            // Act
+            list = list + list;
+            string expected = "Two";
+            // Assert
+            Assert.AreEqual(expected, list[3]);
+        }
+        [TestMethod]
+        public void PlusOperator_Ints_CountCheck()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
+            // Act
+            list = list + list;
+            int expected = 6;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void PlusOperator_StringToEmpty()
+        {
+            CustomList<string> list = new CustomList<string>() { "One", "Two" };
+            CustomList<string> empty = new CustomList<string>();
+            // Act
+            empty = list + empty;
+            string expected = "Two";
+            // Assert
+            Assert.AreEqual(expected, list[1]);
+
+        }
+        [TestMethod]
+        public void PlusOperator_StringToEmpty_CountCheck()
+        {
+            CustomList<string> list = new CustomList<string>() { "One", "Two" };
+            CustomList<string> empty = new CustomList<string>();
+            // Act
+            empty = list + empty;
+            int expected = 2;
+            // Assert
+            Assert.AreEqual(expected, list.Count);
+
+        }
+        [TestMethod]
+        public void PlusOperator_bools()
+        {
+            // Arrange
+            CustomList<bool> list = new CustomList<bool>() { true, false };
+            // Act
+            list = list + list;
+            bool expected = true;
+            // Assert
+            Assert.(expected, list[2]);
+        }
+        [TestMethod]
+        public void PlusOperator_StringsAndInts()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
 
         }
     }
