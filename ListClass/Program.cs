@@ -12,7 +12,13 @@ namespace ListClass
         static void Main(string[] args)
         {
             CustomList<int> IntList = new CustomList<int>();
-            IntList.Add(1);
+            IntList.Add(2);
+            IntList.Remove(2);
+            CustomList<int> list = new CustomList<int>() { 0, 1, 2, 3, 4, 5, 6, 7 };
+            //int expected = 7;
+            // Act
+            list.Remove(0);
+            list.Remove(3);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected[0], list[0]);
         }
         [TestMethod]
-        public void Add_ToEmpty()
+        public void Add_ToEmptyCount()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -45,6 +45,18 @@ namespace CustomListUnitTest
             list.Add(1);
             // Assert
             Assert.AreEqual(expected.Count, list.Count);
+        }
+        [TestMethod]
+        public void Add_ToEmpty()
+        {
+            // Arrange
+            CustomList<int> list = new CustomList<int>();
+            
+            // Act 
+            list.Add(1);
+            int expected = 1;
+            // Assert
+            Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
         public void AddObjects()
@@ -102,19 +114,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
 
         }
-        //Count tests
-        //[TestMethod]
-        //public void Count_Empty_CapacityTest()
-        //{
-        //    // Arrange
-        //    CustomList<int> list = new CustomList<int>();
 
-        //    // Act
-        //    int expected = 5;
-        //   // list.array.Length;
-        //    // Assert
-        //    Assert.AreEqual(expected, list.Count);
-        //}
         [TestMethod]
         public void Count_Empty()
         {
@@ -139,7 +139,7 @@ namespace CustomListUnitTest
             list.Add(1);
             int notExpected = 1;
             // Act
-            //list.Remove(1);
+            list.Remove(1);
             // Assert
             Assert.AreNotEqual(notExpected, list[0]);
         }
@@ -150,7 +150,7 @@ namespace CustomListUnitTest
             CustomList<int> list = new CustomList<int>() { 1 };
             // Act
             list.Remove(1);
-            string expected = null;
+            int expected = 0;
             // Assert
             Assert.AreEqual(expected, list[0]);
         }
@@ -213,7 +213,7 @@ namespace CustomListUnitTest
             Assert.AreNotEqual(notExpected, list[0]);
         }
         [TestMethod]
-        public void Remove_NoObjectsFromList()
+        public void Remove_OneObjectFromListCountCheck()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -224,6 +224,31 @@ namespace CustomListUnitTest
             list.Remove(list);
             // Assert
             Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void RemoveBoolCheck()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object>();
+            list.Add(list);
+            list.Add(list);
+            // Act
+            bool expected = true;
+            bool remove = list.Remove(list);
+            // Assert
+            Assert.AreEqual(expected, remove);
+        }
+        [TestMethod]
+        public void RemoveBoolCheck_False()
+        {
+            // Arrange
+            CustomList<object> list = new CustomList<object>();
+            
+            // Act
+            bool expected = false;
+            bool remove = list.Remove(list);
+            // Assert
+            Assert.AreEqual(expected, remove);
         }
     }
 }

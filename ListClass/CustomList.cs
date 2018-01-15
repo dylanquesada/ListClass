@@ -66,10 +66,29 @@ namespace CustomList
         }
 
 
-
-        public void Remove(T input)
+        public bool Remove(T input)
         {
-
+            bool removed = false;
+            T[] result = new T[capacity];
+            for(int i = 0; i < count; i++)
+            {
+                if (object.Equals(array[i], input) && !removed)
+                {
+                    removed = true;
+                    result[i] = array[i + 1];
+                    count--;
+                }
+                else if (removed)
+                {
+                    result[i] = array[i + 1];
+                }
+                else
+                {
+                    result[i] = array[i];
+                }               
+            }
+            array = result;
+            return removed;
         }
 
 
