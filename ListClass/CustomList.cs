@@ -16,21 +16,13 @@ namespace CustomList
             for(int index = 0; index < count; index++)
             {
                 yield return array[index];
-            }            
-            //Exception IndexOutOfBoundsException = new Exception();
-            //throw new IndexOutOfRangeException();
+            }           
         }
         // constructor
         public CustomList()
         {
             capacity = array.Length;
-
         }
-
-
-
-        
-
         // member variables
         T[] array = new T[5];
         int count = 0;
@@ -65,8 +57,6 @@ namespace CustomList
             }
             array = result;            
         }
-
-
         public bool Remove(T input)
         {
             bool removed = false;
@@ -150,28 +140,5 @@ namespace CustomList
             }
             return result;
         }
-
-
-
-
-
-
-
-
-
-
-        //Workspace for seeing what methods the List class has:
-        List<string> list = new List<string>();
-        public void Workspace()
-        {
-            CustomList<int> intList = new CustomList<int>();
-            intList.Add(1);
-            list.Remove("one");
-        }
-
-
-
-
-
     }
 }

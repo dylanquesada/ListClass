@@ -127,9 +127,6 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreEqual(expected, list.Count);
         }
-
-
-
         //Remove method tests
         [TestMethod]
         public void Remove_ToEmpty()
@@ -207,8 +204,6 @@ namespace CustomListUnitTest
             list.Remove(list);
             list.Remove(list);
             list.Remove(list);
-
-
             // Assert
             Assert.AreNotEqual(notExpected, list[0]);
         }
@@ -243,7 +238,6 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
-
             // Act
             bool expected = false;
             bool remove = list.Remove(list);
@@ -270,7 +264,6 @@ namespace CustomListUnitTest
             string expected = "114";
             string result = list.ToString();
             // Assert
-
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
@@ -282,7 +275,6 @@ namespace CustomListUnitTest
             string expected = "";
             string result = list.ToString();
             // Assert
-
             Assert.AreEqual(expected, result);
         }
 
@@ -303,7 +295,6 @@ namespace CustomListUnitTest
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two" };
-
             // Act
             list = list + list;
             string expected = "Two";
@@ -331,7 +322,6 @@ namespace CustomListUnitTest
             string expected = "Two";
             // Assert
             Assert.AreEqual(expected, empty[1]);
-
         }
         [TestMethod]
         public void PlusOperator_StringToEmpty_CountCheck()
@@ -379,7 +369,6 @@ namespace CustomListUnitTest
             list = list - otherList;
             // Assert
             Assert.AreEqual(expected, list[1]);
-
         }
         [TestMethod]
         public void MinusOperator_boolsCountCheck()
@@ -391,7 +380,6 @@ namespace CustomListUnitTest
             list = list - list;
             // Assert
             Assert.AreEqual(expected, list.Count);
-
         }
         [TestMethod]
         public void MinusOperator_IntsToEmpty_CountChecker()
@@ -403,7 +391,6 @@ namespace CustomListUnitTest
             list = list - list;
             // Assert
             Assert.AreEqual(expected, list.Count);
-
         }
         [TestMethod]
         public void MinusOperator_Objects_CountChecker()
@@ -416,7 +403,6 @@ namespace CustomListUnitTest
             list = list - list;
             // Assert
             Assert.AreEqual(expected, list.Count);
-
         }
         // Zip TestMethods
         [TestMethod]
@@ -442,7 +428,6 @@ namespace CustomListUnitTest
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list.Count);
-
         }
         [TestMethod]
         public void Zip_Ints_UnbalancedLength()
@@ -456,7 +441,6 @@ namespace CustomListUnitTest
             int expected = 9;
             // Assert
             Assert.AreEqual(expected, list[10]);
-
         }
         [TestMethod]
         public void Zip_Strings_CountChecker()
@@ -468,7 +452,6 @@ namespace CustomListUnitTest
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list.Count);
-
         }
         [TestMethod]
         public void Zip_Strings_OtherwiseUnbalancedLength()
