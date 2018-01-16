@@ -18,7 +18,7 @@ namespace CustomList
                 yield return array[index];
             }            
             //Exception IndexOutOfBoundsException = new Exception();
-            throw new IndexOutOfRangeException();
+            //throw new IndexOutOfRangeException();
         }
         // constructor
         public CustomList()
@@ -126,8 +126,28 @@ namespace CustomList
             return result;
         }
         public CustomList<T> Zipper(CustomList<T> list)
-        {
+        {           
             CustomList<T> result = new CustomList<T>();
+            
+            int counter = 0;
+            int counterTwo = 0;
+            bool oneDone = false;
+            bool twoDone = false;
+            while(!oneDone || !twoDone)
+            {                
+                if (counterTwo < count)
+                {
+                    result.Add(array[counterTwo]);
+                    counterTwo++;                    
+                }
+                else { twoDone = true; }
+                if (counter < list.Count)
+                {
+                    result.Add(list[counter]);
+                    counter++;
+                }
+                else { oneDone = true; }
+            }
             return result;
         }
 

@@ -249,21 +249,7 @@ namespace CustomListUnitTest
             bool remove = list.Remove(list);
             // Assert
             Assert.AreEqual(expected, remove);
-        }
-        //[TestMethod]
-        //public void Remove_Int_StringArray()
-        //{
-        //    // Arrange
-        //    CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
-
-        //    // Act
-        //    int one = 1;
-        //    bool result = list.Remove(one);
-        //    bool expected = false;
-        //    // Assert
-        //    Assert.AreEqual(expected, result);
-        //}
-        // ToString Test Methods
+        }        
         [TestMethod]
         public void ToString_ThreeStrings()
         {
@@ -434,7 +420,7 @@ namespace CustomListUnitTest
         }
         // Zip TestMethods
         [TestMethod]
-        public void Zip_ints()
+        public void Zip_Ints()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 3, 5};
@@ -459,14 +445,14 @@ namespace CustomListUnitTest
 
         }
         [TestMethod]
-        public void Zip_ints_UnbalancedLength()
+        public void Zip_Ints_UnbalancedLength()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4 };
             CustomList<int> biggerList = new CustomList<int>() { 9, 9, 9, 9, 9, 9, 9 };
 
             // Act
-            list.Zipper(biggerList);
+            list = list.Zipper(biggerList);
             int expected = 9;
             // Assert
             Assert.AreEqual(expected, list[10]);
@@ -478,7 +464,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
             // Act
-            list.Zipper(list);
+            list = list.Zipper(list);
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list.Count);
