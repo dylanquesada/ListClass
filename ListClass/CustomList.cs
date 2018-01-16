@@ -16,7 +16,7 @@ namespace CustomList
             for(int index = 0; index < count; index++)
             {
                 yield return array[index];
-            }           
+            }  
         }
         // constructor
         public CustomList()
@@ -36,8 +36,21 @@ namespace CustomList
         // Indexer
         public T this[int i]
         {
-            get { return array[i]; }
+            get
+            {
+                if (i < count)
+                {
+                    return array[i];
+                }
+                else
+                {
+                    Exception IndexOutOfBoundsException = new Exception("ERROR: The index is unassigned.");
+                    throw IndexOutOfBoundsException;
+                }
+                
+            }
             set { array[i] = value; }
+
         }
 
         
