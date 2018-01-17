@@ -160,5 +160,33 @@ namespace CustomList
             }
             return result;
         }
+        public CustomList<int> Sort(CustomList<int> list)
+        {
+            CustomList<int> result = new CustomList<int>();
+            result = list;
+            int i, j;
+            int N = count;
+            for (j = N - 1; j > 0; j--)
+            {
+                for (i = 0; i < j; i++)
+                {
+                    if (result[i] > result[i + 1])
+                    {
+                       result = Swap(result, i, i + 1);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public CustomList<int> Swap(CustomList<int> list, int left, int right)
+        {
+            int temporary;
+            temporary = list[left];
+            list[left] = list[right];
+            list[right] = temporary;
+            return list;
+        }
+        
     }
 }
