@@ -9,7 +9,7 @@ namespace CustomListUnitTest
     {
         //Add method tests
         [TestMethod]
-        public void Add_3Ints_()
+        public void Add_3Ints_UpdateArray()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -22,7 +22,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(list[0], expected[0]);
         }
         [TestMethod]
-        public void Add_3Strings()
+        public void Add_3Strings_UpdateArray()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>();
@@ -36,7 +36,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected[0], list[0]);
         }
         [TestMethod]
-        public void Add_ToEmptyCount()
+        public void Add_1Int_IncreaseCount()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -47,7 +47,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected.Count, list.Count);
         }
         [TestMethod]
-        public void Add_ToEmpty()
+        public void Add_1Int_ArrayInitializes()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -59,7 +59,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void AddObjects()
+        public void Add_Objects_UpdateArray()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -71,7 +71,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected.Count, list.Count);
         }
         [TestMethod]
-        public void Add_Ints_SameCount()
+        public void Add_Ints_IncreaseCount()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -84,7 +84,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(result, list.Count);
         }
         [TestMethod]
-        public void Add_OutsideOfBounds()
+        public void Add_ManyObjects_CapacityExpands()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -116,7 +116,7 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void Count_Empty()
+        public void Count_SetToZero_CountEqualZero()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -130,7 +130,7 @@ namespace CustomListUnitTest
         //Remove method tests
         [TestMethod]
         [ExpectedException(typeof(System.Exception))]
-        public void Remove_ToEmpty()
+        public void Remove_AllInts_ThrowException()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -141,20 +141,9 @@ namespace CustomListUnitTest
             // Assert
             Assert.AreNotEqual(notExpected, list[0]);
         }
+        
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
-        public void Remove_IntToEmpty()
-        {
-            // Arrange
-            CustomList<int> list = new CustomList<int>() { 1 };
-            // Act
-            list.Remove(1);
-            int notExpected = 1;
-            // Assert
-            Assert.AreNotEqual(notExpected, list[0]);
-        }
-        [TestMethod]
-        public void Remove_CountCheck()
+        public void Remove_1Int_CountDecrease()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -169,7 +158,7 @@ namespace CustomListUnitTest
             Assert.AreNotEqual(notExpected, list.Count);
         }
         [TestMethod]
-        public void Remove_SingleString()
+        public void Remove_SingleString_IndexShift()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
@@ -182,7 +171,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[1]);
         }
         [TestMethod]
-        public void Remove_MultipleInts()
+        public void Remove_MultipleInts_IndexShift()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 0, 1, 2, 3, 4, 5, 6, 7 };
@@ -195,7 +184,7 @@ namespace CustomListUnitTest
         }
         [TestMethod]
         [ExpectedException(typeof(System.Exception))]
-        public void Remove_Objects()
+        public void Remove_Objects_ThrowException()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -211,7 +200,7 @@ namespace CustomListUnitTest
             Assert.AreNotEqual(notExpected, list[0]);
         }
         [TestMethod]
-        public void Remove_OneObjectFromListCountCheck()
+        public void Remove_OneObject_CountDecrease()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -224,7 +213,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void RemoveBoolCheck()
+        public void Remove_Object_ReturnTrue()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -237,7 +226,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, remove);
         }
         [TestMethod]
-        public void RemoveBoolCheck_False()
+        public void Remove_Nothing_ReturnFalse()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>();
@@ -248,7 +237,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, remove);
         }        
         [TestMethod]
-        public void ToString_ThreeStrings()
+        public void ToString_ThreeStrings_ReturnOneString()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
@@ -259,7 +248,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
-        public void ToString_ThreeInts()
+        public void ToString_ThreeInts_ReturnOneString()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 1, 4 };
@@ -270,7 +259,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
-        public void ToString_EmptyCustomList()
+        public void ToString_EmptyList_ReturnEmptyString()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>();
@@ -282,7 +271,7 @@ namespace CustomListUnitTest
         }
 
         [TestMethod]
-        public void ToString_Bools()
+        public void ToString_Bools_ReturnOneString()
         {
             // Arrange
             CustomList<bool> list = new CustomList<bool>() { true, false, true };
@@ -294,7 +283,7 @@ namespace CustomListUnitTest
         }
         // Plus Operator Test Methods
         [TestMethod]
-        public void PlusOperator_Strings()
+        public void PlusOp_Strings_ConcatLists()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two" };
@@ -305,7 +294,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[3]);
         }
         [TestMethod]
-        public void PlusOperator_Ints_CountCheck()
+        public void PlusOp_Ints_CountIncrease()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
@@ -316,7 +305,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void PlusOperator_StringToEmpty()
+        public void PlusOp_EmptyList_ConcatLists()
         {
             CustomList<string> list = new CustomList<string>() { "One", "Two" };
             CustomList<string> empty = new CustomList<string>();
@@ -327,7 +316,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, empty[1]);
         }
         [TestMethod]
-        public void PlusOperator_StringToEmpty_CountCheck()
+        public void PlusOp_StringToEmpty_CountIdles()
         {
             CustomList<string> list = new CustomList<string>() { "One", "Two" };
             CustomList<string> empty = new CustomList<string>();
@@ -339,7 +328,7 @@ namespace CustomListUnitTest
 
         }
         [TestMethod]
-        public void PlusOperator_bools()
+        public void PlusOp_Bools_ListsConcat()
         {
             // Arrange
             CustomList<bool> list = new CustomList<bool>() { true, false };
@@ -352,7 +341,7 @@ namespace CustomListUnitTest
         // Minus Operator Test Methods
         [TestMethod]
         [ExpectedException(typeof(System.Exception))]
-        public void MinusOperator_bools()
+        public void MinusOp_Bools_ThrowException()
         {
             // Arrange
             CustomList<bool> list = new CustomList<bool>() {true, true, true };
@@ -363,7 +352,7 @@ namespace CustomListUnitTest
             Assert.AreNotEqual(notExpected, list[0]);
         }
         [TestMethod]
-        public void MinusOperator_Strings_IndexShift()
+        public void MinusOp_Strings_IndexShifts()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "true", "true", "false" };
@@ -375,7 +364,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[1]);
         }
         [TestMethod]
-        public void MinusOperator_boolsCountCheck()
+        public void MinusOp_Bools_CountDecrease()
         {
             // Arrange
             CustomList<bool> list = new CustomList<bool>() { true, true, true };
@@ -386,7 +375,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void MinusOperator_IntsToEmpty_CountChecker()
+        public void MinusOp_AllInts_CountDecrease()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 4, 9};
@@ -397,7 +386,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void MinusOperator_Objects_CountChecker()
+        public void MinusOp_Objects_CountDecreases()
         {
             // Arrange
             CustomList<object> list = new CustomList<object>() { };
@@ -410,7 +399,7 @@ namespace CustomListUnitTest
         }
         // Zip TestMethods
         [TestMethod]
-        public void Zip_Ints()
+        public void Zip_Ints_ReturnOneString()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 3, 5};
@@ -422,7 +411,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[5]);
         }
         [TestMethod]
-        public void Zip_Ints_Count()
+        public void Zip_Ints_CountIncreases()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
@@ -434,7 +423,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Zip_Ints_UnbalancedLength()
+        public void Zip_IntListsOfUnbalancedLength_IndexShifts()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4 };
@@ -447,7 +436,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[10]);
         }
         [TestMethod]
-        public void Zip_Strings_CountChecker()
+        public void Zip_Strings_CountIncreases()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
@@ -458,7 +447,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Zip_Strings_OtherwiseUnbalancedLength()
+        public void Zip_StringListsOfUnbalancedLength_IndexShifts()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
