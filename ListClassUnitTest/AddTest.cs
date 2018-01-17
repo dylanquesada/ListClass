@@ -459,7 +459,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[8]);
         }
         [TestMethod]
-        public void Sort_Ints_IndexShift()
+        public void Sort_Ints_IndexShifts()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 4, 10, 2 };
@@ -468,6 +468,28 @@ namespace CustomListUnitTest
             int expected = 10;
             // Assert
             Assert.AreEqual(expected, list[3]);
+        }
+        [TestMethod]
+        public void Sort_Strings_IndexShifts()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "The", "He", "A", "Hat" };
+            // Act
+            list = list.Sort();
+            string expected = "A";
+            // Assert
+            Assert.AreEqual(expected, list[0]);
+        }
+        [TestMethod]
+        public void Sort_Strings_ReturnOrderedList()
+        {
+            // Arrange
+            CustomList<string> list = new CustomList<string>() { "The", "He", "A", "Hat" };
+            // Act
+            list = list.Sort();
+            string expected = "AHatHeThe";
+            // Assert
+            Assert.AreEqual(expected, list.ToString());
         }
     }
 }
