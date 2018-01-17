@@ -11,11 +11,7 @@ namespace ListClass
     {
         static void Main(string[] args)
         {
-            CustomList<int> Nlist = new CustomList<int>() { 1, 999, 3000 };
-            // Act
-            List<int> list = new List<int>() { 1, 2, 3 };
-            Console.WriteLine(list[4]);
-            Console.Read();
+            
         }
     }
 }
