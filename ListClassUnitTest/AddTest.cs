@@ -464,7 +464,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1, 4, 10, 2 };
             // Act
-            list = list.Sort(list);
+            list.Sort();
             int expected = 10;
             // Assert
             Assert.AreEqual(expected, list[3]);
@@ -475,7 +475,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<string> list = new CustomList<string>() { "The", "He", "A", "Hat" };
             // Act
-            //list = list.Sort();
+            list.Sort();
             string expected = "A";
             // Assert
             Assert.AreEqual(expected, list[0]);
@@ -486,7 +486,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<string> list = new CustomList<string>() { "The", "He", "A", "Hat" };
             // Act
-           // list = list.Sort();
+            list.Sort();
             string expected = "AHatHeThe";
             // Assert
             Assert.AreEqual(expected, list.ToString());

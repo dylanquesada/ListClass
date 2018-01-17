@@ -160,33 +160,39 @@ namespace CustomList
             }
             return result;
         }
-        public CustomList<int> Sort(CustomList<int> list)
+        public void Sort()
         {
-            CustomList<int> result = new CustomList<int>();
-            result = list;
+            T[] result = new T[count];
+            result = array;
             int i, j;
             int N = count;
             for (j = N - 1; j > 0; j--)
             {
                 for (i = 0; i < j; i++)
-                {
-                    if (result[i] > result[i + 1])
+                {                    
+                    if (Comparer<T>.Default.Compare(result[i], result[i + 1]) > 0)
                     {
-                       result = Swap(result, i, i + 1);
+                        Swap(result, i, i + 1);
                     }
                 }
             }
-            return result;
+            array = result;
         }
-
-        public CustomList<int> Swap(CustomList<int> list, int left, int right)
+        
+        public void Swap(T[] list, int left, int right)
         {
-            int temporary;
+            T temporary;
             temporary = list[left];
             list[left] = list[right];
             list[right] = temporary;
-            return list;
-        }
-        
+        }        
+        //public int CompareTo(T value)
+        //{
+        //    if(value > this.){
+
+        //    }
+        //    return 0;
+
+        //}
     }
 }
