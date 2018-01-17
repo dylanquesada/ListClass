@@ -9,7 +9,7 @@ namespace CustomListUnitTest
     {
         //Add method tests
         [TestMethod]
-        public void Add_3Ints()
+        public void Add_3Ints_()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>();
@@ -129,6 +129,7 @@ namespace CustomListUnitTest
         }
         //Remove method tests
         [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
         public void Remove_ToEmpty()
         {
             // Arrange
@@ -141,15 +142,16 @@ namespace CustomListUnitTest
             Assert.AreNotEqual(notExpected, list[0]);
         }
         [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
         public void Remove_IntToEmpty()
         {
             // Arrange
             CustomList<int> list = new CustomList<int>() { 1 };
             // Act
             list.Remove(1);
-            int expected = 0;
+            int notExpected = 1;
             // Assert
-            Assert.AreEqual(expected, list[0]);
+            Assert.AreNotEqual(notExpected, list[0]);
         }
         [TestMethod]
         public void Remove_CountCheck()
@@ -192,6 +194,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, list[5]);
         }
         [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
         public void Remove_Objects()
         {
             // Arrange
@@ -267,7 +270,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
-        public void ToString_EmptyArray()
+        public void ToString_EmptyCustomList()
         {
             // Arrange
             CustomList<string> list = new CustomList<string>();
@@ -348,6 +351,7 @@ namespace CustomListUnitTest
         }
         // Minus Operator Test Methods
         [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
         public void MinusOperator_bools()
         {
             // Arrange
@@ -412,7 +416,7 @@ namespace CustomListUnitTest
             CustomList<int> list = new CustomList<int>() { 1, 3, 5};
             CustomList<int> otherList = new CustomList<int>() { 2, 4, 6 };
             // Act
-            list = list.Zipper(otherList);
+            list = list.Zip(otherList);
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list[5]);
@@ -424,7 +428,7 @@ namespace CustomListUnitTest
             CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
             CustomList<int> otherList = new CustomList<int>() { 2, 4, 6 };
             // Act
-            list = list.Zipper(otherList);
+            list = list.Zip(otherList);
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list.Count);
@@ -437,7 +441,7 @@ namespace CustomListUnitTest
             CustomList<int> biggerList = new CustomList<int>() { 9, 9, 9, 9, 9, 9, 9 };
 
             // Act
-            list = list.Zipper(biggerList);
+            list = list.Zip(biggerList);
             int expected = 9;
             // Assert
             Assert.AreEqual(expected, list[10]);
@@ -448,7 +452,7 @@ namespace CustomListUnitTest
             // Arrange
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
             // Act
-            list = list.Zipper(list);
+            list = list.Zip(list);
             int expected = 6;
             // Assert
             Assert.AreEqual(expected, list.Count);
@@ -460,7 +464,7 @@ namespace CustomListUnitTest
             CustomList<string> list = new CustomList<string>() { "One", "Two", "Three" };
             CustomList<string> biggerList = new CustomList<string>() { "One", "Two", "Three", "Four", "Five", "Six" };
             // Act
-            list = biggerList.Zipper(list);
+            list = biggerList.Zip(list);
             string expected = "Six";
             // Assert
             Assert.AreEqual(expected, list[8]);

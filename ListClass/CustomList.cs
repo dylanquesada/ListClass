@@ -44,13 +44,10 @@ namespace CustomList
                 }
                 else
                 {
-                    Exception IndexOutOfBoundsException = new Exception("ERROR: The index is unassigned.");
-                    throw IndexOutOfBoundsException;
+                    throw new Exception();
                 }
-                
             }
             set { array[i] = value; }
-
         }
 
         
@@ -70,17 +67,27 @@ namespace CustomList
             }
             array = result;            
         }
+        //public bool Remove(T input)
+        //{
+        //    bool removed = false;
+            
+
+        //    return removed;
+        //}        
         public bool Remove(T input)
-        {
+        {            
             bool removed = false;
             T[] result = new T[capacity];
+            
             for(int i = 0; i < count; i++)
             {
-                if(Equals(array[i], input) && !removed)
+                if(array[i].Equals(input) && !removed)
                 {
                     removed = true;
-                    result[i] = array[i + 1];
                     count--;
+                    if (i < count) {
+                        result[i] = array[i + 1];
+                    }                    
                 }
                 else if (removed)
                 {
@@ -128,7 +135,7 @@ namespace CustomList
             }
             return result;
         }
-        public CustomList<T> Zipper(CustomList<T> list)
+        public CustomList<T> Zip(CustomList<T> list)
         {           
             CustomList<T> result = new CustomList<T>();
             
