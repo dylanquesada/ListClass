@@ -11,10 +11,7 @@ namespace ListClass
     {
         static void Main(string[] args)
         {
-            CustomList<string> list = new CustomList<string>() {"A", "B", "D", "C", "A" };
-            list.Sort();
-            Console.WriteLine(list);
-            Console.Read();
+            
         }
     }
 }

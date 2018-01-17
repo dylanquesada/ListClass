@@ -66,14 +66,7 @@ namespace CustomList
                 result[i] = array[i];
             }
             array = result;            
-        }
-        //public bool Remove(T input)
-        //{
-        //    bool removed = false;
-            
-
-        //    return removed;
-        //}        
+        }  
         public bool Remove(T input)
         {            
             bool removed = false;
@@ -185,14 +178,6 @@ namespace CustomList
             temporary = list[left];
             list[left] = list[right];
             list[right] = temporary;
-        }        
-        //public int CompareTo(T value)
-        //{
-        //    if(value > this.){
-
-        //    }
-        //    return 0;
-
-        //}
+        }    
     }
 }
